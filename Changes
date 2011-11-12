@@ -1,5 +1,8 @@
 Revision history for Net-SNMP-Mixin-IpCidrRouteTable
 
+0.03	Sat, 12 Nov 2011 23:10:59 +0100
+	* fix LICENSE file
+
 0.02	Sat, 12 Nov 2011 22:32:45 +0100
 	* return table in oid lexical sort order
 
