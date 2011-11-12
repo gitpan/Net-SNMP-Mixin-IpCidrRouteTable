@@ -1,4 +1,7 @@
 Revision history for Net-SNMP-Mixin-IpCidrRouteTable
 
+0.02	Sat, 12 Nov 2011 22:32:45 +0100
+	* return table in oid lexical sort order
+
 0.01	Sat, 12 Nov 2011 18:52:25 +0100
 	* first CPAN version

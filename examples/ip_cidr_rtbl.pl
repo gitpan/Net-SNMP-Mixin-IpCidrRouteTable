@@ -110,7 +110,6 @@ sub print_ip_cidr_rtbl {
     print '-' x 66, "\n";
 
     my @routes = $session->get_ip_cidr_route_table();
-    @routes = sort by_dest @routes;
 
     foreach my $route (@routes) {
         my $dest      = $route->{ipCidrRouteDest};
@@ -131,11 +130,6 @@ sub mk_bits {
 
     # sorry, highly condensed code, write once read never
     return unpack( '%B*', pack( 'C4', split( /\./, shift ) ) );
-}
-
-# sort the route entries by destination IPv4 address using oid_lex_cmp from Net::SNMP
-sub by_dest {
-    return oid_lex_cmp( $a->{ipCidrRouteDest}, $b->{ipCidrRouteDest} );
 }
 
 sub usage {

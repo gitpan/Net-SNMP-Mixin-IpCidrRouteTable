@@ -14,6 +14,7 @@ my $prefix = __PACKAGE__;
 # this module import config
 #
 use Carp ();
+use Net::SNMP qw(oid_lex_sort);
 use Net::SNMP::Mixin::Util qw/idx2val push_error/;
 
 #
@@ -107,11 +108,11 @@ Net::SNMP::Mixin::IpCidrRouteTable - mixin class for the mib-II ipCidrRouteTable
 
 =head1 VERSION
 
-Version 0.01
+Version 0.02
 
 =cut
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 =head1 SYNOPSIS
 
@@ -148,7 +149,7 @@ A Net::SNMP mixin class for mib-II ipCidrRouteTable info.
 
 =head2 B<< OBJ->get_ip_cidr_route_table() >>
 
-Returns a list of mib-II ipCidrRouteTable entries. Every list element (route entry) is a hashref with the following fields and values:
+Returns a sorted list of mib-II ipCidrRouteTable entries. Every list element (route entry) is a hashref with the following fields and values:
 
     {
         ipCidrRouteDest         => IpAddress,           # tbl index
@@ -198,7 +199,9 @@ sub get_ip_cidr_route_table {
   #
   # index is ipCidrRouteDest,ipCidrRouteMask,ipCidrRouteTos,ipCidrRouteNextHop
   #
-  foreach my $idx ( keys %{ $session->{$prefix}{ipCidrRouteDest} } ) {
+  foreach
+    my $idx ( oid_lex_sort keys %{ $session->{$prefix}{ipCidrRouteDest} } )
+  {
     $ipCidrRouteDest    = $session->{$prefix}{ipCidrRouteDest}{$idx};
     $ipCidrRouteMask    = $session->{$prefix}{ipCidrRouteMask}{$idx};
     $ipCidrRouteTos     = $session->{$prefix}{ipCidrRouteTos}{$idx};
@@ -332,9 +335,9 @@ sub _ip_cidr_route_tbl_cb {
     return;
   }
 
-  # mangle result table to get plain idx->value
+  # build parallel hashes, keys are the index:
   #
-  # result array: ipRouteDest => values
+  # ipCidrRouteDest,ipCidrRouteMask,ipCidrRouteTos,ipCidrRouteNextHop
   #
 
   $session->{$prefix}{ipCidrRouteDest} =

@@ -3,7 +3,7 @@ NAME
     ipCidrRouteTable
 
 VERSION
-    Version 0.01
+    Version 0.02
 
 SYNOPSIS
       use Net::SNMP;
@@ -36,8 +36,8 @@ DESCRIPTION
 
 MIXIN METHODS
   OBJ->get_ip_cidr_route_table()
-    Returns a list of mib-II ipCidrRouteTable entries. Every list element
-    (route entry) is a hashref with the following fields and values:
+    Returns a sorted list of mib-II ipCidrRouteTable entries. Every list
+    element (route entry) is a hashref with the following fields and values:
 
         {
             ipCidrRouteDest         => IpAddress,           # tbl index
