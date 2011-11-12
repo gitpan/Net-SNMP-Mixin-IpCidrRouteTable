@@ -1,0 +1,27 @@
+---
+abstract: 'mixin class for the mib-II ipCidrRouteTable'
+author:
+  - 'Karl Gaissmaier <karl.gaissmaier (at) uni-ulm.de>'
+build_requires:
+  Module::Build: 0
+  Test::More: 0
+configure_requires:
+  Module::Build: 0.36
+generated_by: 'Module::Build version 0.3607'
+license: perl
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.4.html
+  version: 1.4
+name: Net-SNMP-Mixin-IpCidrRouteTable
+provides:
+  Net::SNMP::Mixin::IpCidrRouteTable:
+    file: lib/Net/SNMP/Mixin/IpCidrRouteTable.pm
+    version: 0.01
+requires:
+  Net::SNMP: 0
+  Net::SNMP::Mixin: 0.11
+  Sub::Exporter: 0.978
+  perl: v5.6.0
+resources:
+  license: http://dev.perl.org/licenses/
+version: 0.01
