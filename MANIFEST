@@ -16,3 +16,4 @@ t/05-live-session-mixer.t
 t/boilerplate.t
 t/pod-coverage.t
 t/pod.t
+META.json

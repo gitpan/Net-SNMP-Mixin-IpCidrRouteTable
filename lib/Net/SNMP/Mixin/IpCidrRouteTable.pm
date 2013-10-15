@@ -108,11 +108,11 @@ Net::SNMP::Mixin::IpCidrRouteTable - mixin class for the mib-II ipCidrRouteTable
 
 =head1 VERSION
 
-Version 0.03
+Version 0.04
 
 =cut
 
-our $VERSION = '0.03';
+our $VERSION = '0.04';
 
 =head1 SYNOPSIS
 
@@ -129,7 +129,7 @@ our $VERSION = '0.03';
 
   die $session->errors if $session->errors;
 
-  my @routes = get_ip_cidr_route_table();
+  my @routes = $session->get_ip_cidr_route_table();
 
   foreach my $route (@routes) {
       my $dest     = $route->{ipCidrRouteDest};

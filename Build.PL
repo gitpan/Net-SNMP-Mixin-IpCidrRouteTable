@@ -9,7 +9,6 @@ my $builder = Module::Build->new(
   dist_author       => 'Karl Gaissmaier <karl.gaissmaier (at) uni-ulm.de>',
   dist_version_from => 'lib/Net/SNMP/Mixin/IpCidrRouteTable.pm',
   requires          => {
-    'perl'             => '5.6.0',
     'Net::SNMP'        => '0',
     'Net::SNMP::Mixin' => '0.11',
     'Sub::Exporter'    => '0.978',
@@ -18,6 +17,7 @@ my $builder = Module::Build->new(
     'Module::Build' => '0',
     'Test::More'    => '0',
   },
+  configure_requires => { 'Module::Build' => 0.38 },
   create_makefile_pl => 'small',
   add_to_cleanup => [qw/Net-SNMP-Mixin-* Makefile* META.yml README/],
 );

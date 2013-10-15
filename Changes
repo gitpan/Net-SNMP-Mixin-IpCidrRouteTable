@@ -1,5 +1,9 @@
 Revision history for Net-SNMP-Mixin-IpCidrRouteTable
 
+0.04	Tue, 15 Oct 2013 16:21:50 +0200
+	* fix POD typo [rt.cpan.org #89522]
+	* tweak Build.pl
+
 0.03	Sat, 12 Nov 2011 23:10:59 +0100
 	* fix LICENSE file
 
